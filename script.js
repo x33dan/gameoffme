@@ -27,6 +27,7 @@ var br = [];
 var st = 2;
 var vp = 0;
 var sc1 = 0;
+var xx = 0;
 
 
 
@@ -45,6 +46,30 @@ function welcome(){
 }
 welcome();
 
+function randomSpeed() {
+  xx = Math.random();
+  if (xx < 1/4){
+    console.log(1);
+    dx = 0.8;
+    dy = -0.8;
+  }
+  else if (xx >= 1/4 && xx < 1/2) {
+    console.log(2);
+    dx = 0.8;
+    dy = 0.8;
+  }
+  else if (xx >= 1/2 && xx < 3/4) {
+    console.log(3);
+    dx = -0.8;
+    dy = -0.8;
+  }
+  else if (xx >= 3/4) {
+    console.log(4);
+    dx = -0.8;
+    dy = 0.8;
+  }
+}
+
 b1.onclick = function() {
   music1.play();
   document.getElementById('myCanvas').height = 400;
@@ -62,11 +87,13 @@ b1.onclick = function() {
   brOffsetLeft = 30;
   pY = (canvas.height-pHeight);
   pX = (canvas.width-pWidth)/2;
+  randomSpeed();
   mainFunction();
   vP = 3;
 }
 
 b2.onclick = function() {
+  music1.play();
   document.getElementById('myCanvas').height = 400;
   document.getElementById('myCanvas').width = 800;
   st = 2;
@@ -81,6 +108,7 @@ b2.onclick = function() {
   brOffsetLeft = 30;
   pY = (canvas.height-pHeight);
   pX = (canvas.width-pWidth)/2;
+  randomSpeed();
   mainFunction();
   vP = 3;
   sc1 = 30;
@@ -102,12 +130,18 @@ b3.onclick = function() {
   brOffsetLeft = 30;
   pY = (canvas.height-pHeight);
   pX = (canvas.width-pWidth)/2;
+  randomSpeed();
   mainFunction();
   vP = 3;
   sc1 = 70;
 }
 
+
 function mainFunction() {
+
+y = (canvas.height*4/5+brOffsetTop+brRows*(brPadding+brHeight))/2;
+x = canvas.width/2;
+
 for(var c=0; c<brColumns; c++) {
     br[c] = [];
     for(var r=0; r<brRows; r++) {
@@ -146,20 +180,20 @@ ctx.fillStyle = "green";
 else {
   ctx.fillStyle = "red";
   if (dy < 0 && dx < 0){
-    dy = -1;
-    dx = -1;
+    dy = -4;
+    dx = -4;
   }
   else if (dy < 0 && dx > 0) {
-    dy = -1;
-    dx = 1;
+    dy = -4;
+    dx = 4;
   }
   else if (dy > 0 && dx < 0) {
-    dy = 1;
-    dx = -1;
+    dy = 4;
+    dx = -4;
   }
   else if (dy > 0 && dx > 0) {
-    dy = 1;
-    dx = 1;
+    dy = 4;
+    dx = 4;
   }
 }
 
@@ -171,7 +205,7 @@ if( y + dy < bRadius) {
 }
 
 else if(y + dy > pY - pHeight && y + dy < pY){
-  if(x > pX && x<pX + pWidth){
+  if(x > pX && x < pX + pWidth){
     dy = -dy;
   }
 }
