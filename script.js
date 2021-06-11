@@ -111,7 +111,7 @@ b2.onclick = function() {
   randomSpeed();
   mainFunction();
   vP = 3;
-  sc1 = 30;
+  sc1 = 1000;
 }
 
 b3.onclick = function() {
@@ -133,7 +133,7 @@ b3.onclick = function() {
   randomSpeed();
   mainFunction();
   vP = 3;
-  sc1 = 70;
+  sc1 = 1000;
 }
 
 
