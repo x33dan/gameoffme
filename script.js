@@ -4,8 +4,8 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/2-100;
 var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+var dx = 0.8;
+var dy = -0.8;
 var bRadius = 0;
 var pHeight = 10;
 var pWidth = 0;
@@ -63,7 +63,7 @@ b1.onclick = function() {
   pY = (canvas.height-pHeight);
   pX = (canvas.width-pWidth)/2;
   mainFunction();
-  vP = 7;
+  vP = 3;
 }
 
 b2.onclick = function() {
@@ -82,7 +82,7 @@ b2.onclick = function() {
   pY = (canvas.height-pHeight);
   pX = (canvas.width-pWidth)/2;
   mainFunction();
-  vP = 10;
+  vP = 3;
   sc1 = 30;
 }
 
@@ -103,7 +103,7 @@ b3.onclick = function() {
   pY = (canvas.height-pHeight);
   pX = (canvas.width-pWidth)/2;
   mainFunction();
-  vP = 10;
+  vP = 3;
   sc1 = 70;
 }
 
@@ -146,20 +146,20 @@ ctx.fillStyle = "green";
 else {
   ctx.fillStyle = "red";
   if (dy < 0 && dx < 0){
-    dy = -4;
-    dx = -4;
+    dy = -1;
+    dx = -1;
   }
   else if (dy < 0 && dx > 0) {
-    dy = -4;
-    dx = 4;
+    dy = -1;
+    dx = 1;
   }
   else if (dy > 0 && dx < 0) {
-    dy = 4;
-    dx = -4;
+    dy = 1;
+    dx = -1;
   }
   else if (dy > 0 && dx > 0) {
-    dy = 4;
-    dx = 4;
+    dy = 1;
+    dx = 1;
   }
 }
 
